@@ -470,6 +470,9 @@ body.focus-mode #main{height:100vh; height:100dvh;}
 </div>
 
 <div id="app">
+  <!-- ---------- Sidebar drawer ---------- -->
+  <div id="sidebarBackdrop"></div>
+
   <!-- ============================================================
        SIDEBAR
        ============================================================ -->
@@ -1167,11 +1170,21 @@ function switchFolder(folder){
   currentFolder = folder;
   $$('.folder').forEach(f=>f.classList.toggle('active', f.dataset.folder===folder));
   render();
-  if(window.innerWidth <= 820) $('#sidebar').classList.remove('show');
+  if(window.innerWidth <= 820) {
+    $('#sidebar').classList.remove('show');
+    $('#sidebarBackdrop').classList.remove('show');
+  }
 }
 $$('.folder').forEach(f=>f.addEventListener('click', ()=>switchFolder(f.dataset.folder)));
 
-$('#menuBtn').addEventListener('click', ()=> $('#sidebar').classList.toggle('show'));
+$('#menuBtn').addEventListener('click', ()=>{
+  $('#sidebar').classList.toggle('show');
+  $('#sidebarBackdrop').classList.toggle('show');
+});
+$('#sidebarBackdrop').addEventListener('click', ()=>{
+  $('#sidebar').classList.remove('show');
+  $('#sidebarBackdrop').classList.remove('show');
+});
 
 /* ---------------------------------------------------------------
    12. BUBBLE ACTIONS (pin / lock / unlock / copy / delete)
