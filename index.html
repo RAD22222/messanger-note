@@ -283,23 +283,61 @@ mark.hl-number{background:transparent; color:var(--accent3); font-weight:600;}
   background:var(--paper-translucent);
   backdrop-filter:blur(24px) saturate(180%);
   -webkit-backdrop-filter:blur(24px) saturate(180%);
-  padding:8px 12px calc(10px + var(--safe-bottom));
+  padding:10px 14px calc(12px + var(--safe-bottom));
   position:sticky; bottom:0; z-index:40;
 }
 #draftStatus{display:none !important;}
-.compose-row{display:flex; align-items:flex-end; gap:8px;}
-#noteInput{
-  flex:1; resize:none; border:none; border-radius:22px;
-  padding:11px 18px; font-size:16px; max-height:140px; min-height:44px;
-  background:color-mix(in srgb, var(--ink) 5%, var(--bg)); line-height:1.45;
-  transition:box-shadow .2s var(--ease), background .2s;
+.compose-row{
+  display:flex;
+  align-items:flex-end;
+  gap:6px;
+  background:color-mix(in srgb, var(--ink) 4%, var(--bg));
+  border:1px solid var(--line);
+  border-radius:26px;
+  padding:5px 8px;
+  transition:border-color .25s var(--ease), box-shadow .25s var(--ease), background .25s;
 }
-#noteInput:focus{box-shadow:0 0 0 3px color-mix(in srgb, var(--accent) 18%, transparent); background:var(--paper);}
-.compose-row .iconbtn{flex-shrink:0; width:42px; height:42px;}
-.iconbtn.mic.recording{background:var(--warn); color:#fff; animation:pulse 1.1s infinite;}
+.compose-row:focus-within{
+  border-color:var(--accent);
+  background:var(--paper);
+  box-shadow:0 0 0 3px color-mix(in srgb, var(--accent) 15%, transparent);
+}
+#noteInput{
+  flex:1;
+  resize:none;
+  border:none;
+  background:transparent;
+  padding:8px 10px;
+  font-size:15.5px;
+  max-height:140px;
+  min-height:36px;
+  line-height:1.4;
+  color:var(--ink);
+  transition:none;
+  box-shadow:none !important;
+}
+#noteInput:focus{
+  outline:none;
+}
+.compose-row .iconbtn{
+  flex-shrink:0;
+  width:36px;
+  height:36px;
+  font-size:16px;
+  border-radius:50%;
+  background:transparent;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  transition:background .2s, transform .12s;
+}
+.compose-row .iconbtn:hover{
+  background:color-mix(in srgb, var(--ink) 8%, transparent);
+}
+.iconbtn.mic.recording{background:var(--warn) !important; color:#fff !important; animation:pulse 1.1s infinite;}
 @keyframes pulse{0%,100%{transform:scale(1); box-shadow:0 0 0 0 color-mix(in srgb, var(--warn) 45%, transparent);}50%{transform:scale(1.07); box-shadow:0 0 0 8px transparent;}}
-#sendBtn{background:var(--accent); color:#fff;}
-#sendBtn:hover{opacity:.9;}
+#sendBtn{background:var(--accent) !important; color:#fff !important;}
+#sendBtn:hover{transform:scale(1.05); opacity:.95;}
 
 #waveCanvas{width:100%; height:36px; display:none; margin:0 0 6px; border-radius:10px; background:color-mix(in srgb, var(--ink) 5%, var(--bg));}
 
