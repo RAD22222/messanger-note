@@ -1,0 +1,16 @@
+{
+  "name": "খাতা · Smart Offline Note Messenger",
+  "short_name": "খাতা",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#2F8F7B",
+  "theme_color": "#2F8F7B",
+  "description": "Offline-first, smart notes and messenger app with OCR and speech recognition.",
+  "icons": [
+    {
+      "src": "icon.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    }
+  ]
+}
